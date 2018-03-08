@@ -29,4 +29,4 @@ See the previous packages.
 * With multiple libs: openssl
 * Header only: sol
 * With PATCH:
-* Depend on other lib:
+* With dependent package:
