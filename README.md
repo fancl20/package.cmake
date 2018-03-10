@@ -23,7 +23,7 @@ target_link_libraries(main
 ))
 ```
 
-The above example add `grpc` and its dependencies. `openssl` include many libs (libssl.a and libcrypto.a). You can specify a lib in openssl by using `openssl::ssl` or `openssl::crypto`.
+The above example add `grpc` and its dependencies. `openssl` include 2 libs (libssl.a and libcrypto.a). You can specify a lib in openssl by using `openssl::ssl` or `openssl::crypto`.
 
 ## Add package to repo
 
