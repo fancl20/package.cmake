@@ -30,3 +30,16 @@ function(add_package target depend)
         add_dependencies(${libTarget} ${depend})
     endforeach()
 endfunction()
+
+set(ExternalProjectArgs
+    CMAKE_CACHE_ARGS
+        "-DCMAKE_PREFIX_PATH:PATH=<INSTALL_DIR>"
+        "-DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>"
+    BUILD_IN_SOURCE 1
+    INSTALL_DIR ${installDir}
+)
+set(Make
+    export PATH=<INSTALL_DIR>/bin:$ENV{PATH} &&
+    export PKG_CONFIG_PATH=<INSTALL_DIR>/lib/pkgconfig &&
+    $(MAKE)
+)

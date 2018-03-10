@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.11)
 
-set_property(GLOBAL PROPERTY PACKAGE_BASE_DIR ${CMAKE_CURRENT_LIST_DIR})
 function(using pkg version)
-    include(ExternalProject)
     get_property(baseDir GLOBAL PROPERTY PACKAGE_BASE_DIR)
+    get_property(installDir GLOBAL PROPERTY PACKAGE_INSTALL_DIR)
+    include(ExternalProject)
+    include(${baseDir}/packages/misc.cmake)
     add_subdirectory(${baseDir}/packages/${pkg} EXCLUDE_FROM_ALL)
 endfunction()
