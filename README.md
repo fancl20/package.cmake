@@ -36,4 +36,4 @@ See the previous packages.
 
 ## TODO
 
-* Add package compile options: using(openssl 1.0.2n ZLIB)
+* Add package compile options: `using(openssl 1.0.2n ZLIB)`
