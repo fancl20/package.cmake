@@ -6,5 +6,5 @@ ExternalProject_Add (
     ${ExternalProjectArgs} 
 )
 add_package(protobuf protobuf-${version}-external
-    STATICS protobuf protobuf-lite protobufc
+    STATICS protobuf protobuf-lite protoc
 )
