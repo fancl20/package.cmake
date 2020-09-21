@@ -1,10 +1,5 @@
 function(add_package target depend)
-    set(options)
-    set(oneValueArgs)
-    set(multiValueArgs STATICS)
-    cmake_parse_arguments("ADD_PACKAGE"
-        "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN}
-    )
+    cmake_parse_arguments("ADD_PACKAGE" "" "" "STATICS" ${ARGN})
     ExternalProject_Get_Property(${depend} install_dir)
     file(MAKE_DIRECTORY ${install_dir}/include)
 
@@ -36,6 +31,7 @@ set(ExternalProjectArgs
         "-DCMAKE_PREFIX_PATH:PATH=<INSTALL_DIR>"
         "-DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>"
         "-DCMAKE_INSTALL_LIBDIR:PATH=lib"
+        "-DCMAKE_CXX_STANDARD:STRING=${CMAKE_CXX_STANDARD}"
     BUILD_IN_SOURCE 1
     INSTALL_DIR ${installDir}
 )

@@ -1,10 +1,15 @@
-string(REPLACE "." "_" tag "${version}")
+cmake_parse_arguments(
+    "USING_PACKAGE_CARES"
+    "" "VERSION" ""
+    ${USING_PACKAGE_EXTRA_ARGS}
+)
 ExternalProject_Add (
-    cares-${version}-external
-    URL https://github.com/c-ares/c-ares/archive/cares-${tag}.zip
-    CONFIGURE_COMMAND
-        COMMAND ./buildconf
-        COMMAND ./configure --disable-shared --prefix=<INSTALL_DIR>
+    cares-external
+    URL https://github.com/c-ares/c-ares/archive/cares-${USING_PACKAGE_CARES_VERSION}.zip
+    CMAKE_CACHE_ARGS
+        "-DCARES_STATIC:BOOL=ON"
+        "-DCARES_SHARED:BOOL=OFF"
+        "-DCARES_BUILD_TOOLS:BOOL=OFF"
     ${ExternalProjectArgs} 
 )
-add_package(cares cares-${version}-external STATICS cares)
+add_package(cares cares-external STATICS cares)
