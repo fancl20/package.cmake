@@ -5,6 +5,9 @@
 Use `using` to add a package into you project and use `target_link_libraries` to link (also add include directories) to you target.
 
 ```cmake
+cmake_minimum_required(VERSION 3.18)
+project(project_name)
+
 set(CMAKE_CXX_STANDARD 20)
 add_subdirectory(package.cmake)
 
