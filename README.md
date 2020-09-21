@@ -25,9 +25,10 @@ find_package(Threads REQUIRED)
 
 add_executable(main main.cpp)
 target_compile_options(main PRIVATE
-    -O2 -g -std=c++20 -Wall -Wextra -Werror
+    -O2 -g -Wall -Wextra -Werror
 )
 target_link_libraries(main
+    grpcgen
     grpc::grpc++_unsecure protobuf::protobuf openssl cares zlib
     Threads::Threads
 ))
