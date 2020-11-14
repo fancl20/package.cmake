@@ -35,8 +35,9 @@ set(ExternalProjectArgs
     BUILD_IN_SOURCE 1
     INSTALL_DIR ${installDir}
 )
-set(Make
-    export PATH=<INSTALL_DIR>/bin:$ENV{PATH} &&
-    export PKG_CONFIG_PATH=<INSTALL_DIR>/lib/pkgconfig:<INSTALL_DIR>/share/pkgconfig &&
-    $(MAKE)
+set(PackageEnv
+    PATH=<INSTALL_DIR>/bin:$ENV{PATH}
+    PKG_CONFIG_PATH=<INSTALL_DIR>/lib/pkgconfig:<INSTALL_DIR>/share/pkgconfig
+)
+set(Make ${PackageEnv} $(MAKE)
 )
