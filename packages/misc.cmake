@@ -1,7 +1,10 @@
 function(add_package target depend)
     cmake_parse_arguments("ADD_PACKAGE" "" "" "STATICS" ${ARGN})
     ExternalProject_Get_Property(${depend} install_dir)
-    file(MAKE_DIRECTORY ${install_dir}/include)
+    file(MAKE_DIRECTORY
+        ${install_dir}/include
+        ${install_dir}/lib
+    )
 
     add_library(${target} INTERFACE IMPORTED GLOBAL)
     target_include_directories(${target}
@@ -26,7 +29,13 @@ function(add_package target depend)
     endforeach()
 endfunction()
 
+set(PackageRun ${CMAKE_COMMAND} -E env
+    PATH=<INSTALL_DIR>/bin:$ENV{PATH}
+    PKG_CONFIG_PATH=<INSTALL_DIR>/lib/pkgconfig:<INSTALL_DIR>/share/pkgconfig
+)
+set(Make ${PackageRun} $(MAKE))
 set(ExternalProjectArgs
+    CMAKE_COMMAND ${PackageRun} cmake
     CMAKE_CACHE_ARGS
         "-DCMAKE_PREFIX_PATH:PATH=<INSTALL_DIR>"
         "-DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR>"
@@ -34,10 +43,4 @@ set(ExternalProjectArgs
         "-DCMAKE_CXX_STANDARD:STRING=${CMAKE_CXX_STANDARD}"
     BUILD_IN_SOURCE 1
     INSTALL_DIR ${installDir}
-)
-set(PackageEnv
-    PATH=<INSTALL_DIR>/bin:$ENV{PATH}
-    PKG_CONFIG_PATH=<INSTALL_DIR>/lib/pkgconfig:<INSTALL_DIR>/share/pkgconfig
-)
-set(Make ${PackageEnv} $(MAKE)
 )

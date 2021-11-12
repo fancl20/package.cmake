@@ -7,9 +7,9 @@ ExternalProject_Add (
     libfuse-external
     DEPENDS meson ninja
     URL https://github.com/libfuse/libfuse/archive/fuse-${USING_PACKAGE_LIBFUSE_VERSION}.zip
-    CONFIGURE_COMMAND ${PackageEnv} meson <SOURCE_DIR>
-    BUILD_COMMAND ${PackageEnv} ninja
-    INSTALL_COMMAND ${PackageEnv} DESTDIR=<INSTALL_DIR> ninja install
+    CONFIGURE_COMMAND ${PackageRun} meson <SOURCE_DIR>
+    BUILD_COMMAND ${PackageRun} ninja
+    INSTALL_COMMAND ${PackageRun} DESTDIR=<INSTALL_DIR> ninja install
     INSTALL_DIR ${installDir}
 )
 add_package(libfuse libfuse-external)

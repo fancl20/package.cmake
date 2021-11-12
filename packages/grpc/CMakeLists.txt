@@ -7,7 +7,7 @@ ExternalProject_Add (
     grpc-external
     # grpc may depending on other absl targets. But absl::base is enough for
     # verifying denpendency.
-    DEPENDS absl::base cares protobuf re2 openssl zlib
+    DEPENDS absl::base cares protobuf re2 boringssl zlib
     URL https://github.com/grpc/grpc/archive/v${USING_PACKAGE_GRPC_VERSION}.zip
     CMAKE_CACHE_ARGS
         "-DgRPC_BUILD_TESTS:BOOL=OFF"
