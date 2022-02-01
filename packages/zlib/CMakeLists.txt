@@ -6,6 +6,6 @@ cmake_parse_arguments(
 ExternalProject_Add (
     zlib-external
     URL https://zlib.net/zlib-${USING_PACKAGE_ZLIB_VERSION}.tar.gz
-    ${ExternalProjectArgs} 
+    ${ExternalProjectArgs}
 )
 add_package(zlib zlib-external STATICS z)

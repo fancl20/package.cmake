@@ -12,7 +12,7 @@ ExternalProject_Add (
     INSTALL_COMMAND ${CMAKE_COMMAND} -E copy <SOURCE_DIR>/ssl/libssl.a <INSTALL_DIR>/lib/
     COMMAND ${CMAKE_COMMAND} -E copy <SOURCE_DIR>/crypto/libcrypto.a <INSTALL_DIR>/lib/
     COMMAND ${CMAKE_COMMAND} -E  copy_directory <SOURCE_DIR>/include <INSTALL_DIR>/include/
-    ${ExternalProjectArgs} 
+    ${ExternalProjectArgs}
 )
 add_package(boringssl boringssl-external
     STATICS ssl crypto

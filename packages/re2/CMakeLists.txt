@@ -5,10 +5,10 @@ cmake_parse_arguments(
 )
 ExternalProject_Add (
     re2-external
-    URL https://github.com/google/re2/archive/${USING_PACKAGE_RE2_VERSION}.zip
+    URL https://github.com/google/re2/archive/refs/tags/${USING_PACKAGE_RE2_VERSION}.zip
     CMAKE_CACHE_ARGS
         "-DRE2_BUILD_TESTING:BOOL=OFF"
-    ${ExternalProjectArgs} 
+    ${ExternalProjectArgs}
 )
 add_package(re2 re2-external
     STATICS re2

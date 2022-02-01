@@ -5,7 +5,7 @@ cmake_parse_arguments(
 )
 ExternalProject_Add (
     sol-external
-    URL https://github.com/ThePhD/sol2/archive/v${USING_PACKAGE_SOL_VERSION}.zip
-    ${ExternalProjectArgs} 
+    URL https://github.com/ThePhD/sol2/archive/refs/tags/v${USING_PACKAGE_SOL_VERSION}.zip
+    ${ExternalProjectArgs}
 )
 add_package(sol sol-external)

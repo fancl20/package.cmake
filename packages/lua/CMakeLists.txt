@@ -9,6 +9,6 @@ ExternalProject_Add (
     CONFIGURE_COMMAND ""
     BUILD_COMMAND ${Make} posix
     INSTALL_COMMAND ${Make} install INSTALL_TOP=<INSTALL_DIR>
-    ${ExternalProjectArgs} 
+    ${ExternalProjectArgs}
 )
 add_package(lua lua-external STATICS lua)

@@ -9,10 +9,10 @@ if(APPLE)
 endif()
 ExternalProject_Add (
     openssl-external
-    URL https://github.com/openssl/openssl/archive/OpenSSL_${USING_PACKAGE_OPENSSL_VERSION}.zip
+    URL https://github.com/openssl/openssl/archive/refs/tags/OpenSSL_${USING_PACKAGE_OPENSSL_VERSION}.zip
     CONFIGURE_COMMAND ./${OpenSSLConfigureCommand} no-zlib no-shared enable-cms --prefix=<INSTALL_DIR>
     INSTALL_COMMAND ${Make} install_sw
-    ${ExternalProjectArgs} 
+    ${ExternalProjectArgs}
 
 )
 add_package(openssl openssl-external 

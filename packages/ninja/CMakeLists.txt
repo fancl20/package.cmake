@@ -5,7 +5,7 @@ cmake_parse_arguments(
 )
 ExternalProject_Add (
     ninja-external
-    URL https://github.com/ninja-build/ninja/archive/v${USING_PACKAGE_NINJA_VERSION}.zip
-    ${ExternalProjectArgs} 
+    URL https://github.com/ninja-build/ninja/archive/refs/tags/v${USING_PACKAGE_NINJA_VERSION}.zip
+    ${ExternalProjectArgs}
 )
 add_package(ninja ninja-external)
