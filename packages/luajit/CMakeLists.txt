@@ -7,7 +7,7 @@ cmake_parse_arguments(
 ExternalProject_Add (
     luajit-external
     GIT_REPOSITORY git@git.bilibili.co:bigdata/luajit.git
-    GIT_TAG v${USING_PACKAGE_LUAJIT_VERSION}
+    GIT_TAG ${USING_PACKAGE_LUAJIT_VERSION}
     CONFIGURE_COMMAND ""
     BUILD_COMMAND ${Make} CC=${CMAKE_C_COMPILER} -j$(nproc)
     INSTALL_COMMAND ${Make} install PREFIX="" DESTDIR=<INSTALL_DIR>
