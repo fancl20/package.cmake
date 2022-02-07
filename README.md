@@ -19,7 +19,7 @@ using(boringssl VERSION a9670a8b476470e6f874fef3554e8059683e1413)
 using(cares VERSION 1_18_1)
 using(protobuf VERSION 3.19.1)
 using(grpc VERSION 1.41.1)
-using(luajit VERSION 2.1 LUA_VERSION 5.1)
+using(luajit VERSION v2.1 LUA_VERSION 5.1)
 using(grpcgen 
     PROTO_PATH ${PROJECT_SOURCE_DIR}
     PROTO_FILES
