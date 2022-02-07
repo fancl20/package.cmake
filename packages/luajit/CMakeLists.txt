@@ -6,7 +6,7 @@ cmake_parse_arguments(
 )
 ExternalProject_Add (
     luajit-external
-    GIT_REPOSITORY git@git.bilibili.co:bigdata/luajit.git
+    GIT_REPOSITORY https://luajit.org/git/luajit.git
     GIT_TAG ${USING_PACKAGE_LUAJIT_VERSION}
     CONFIGURE_COMMAND ""
     BUILD_COMMAND ${Make} CC=${CMAKE_C_COMPILER} -j$(nproc)
