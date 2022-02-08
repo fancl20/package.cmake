@@ -9,6 +9,8 @@ cmake_minimum_required(VERSION 3.18)
 project(project_name)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 add_subdirectory(package.cmake)
 
 using(ninja VERSION 1.10.2)
