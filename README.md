@@ -9,6 +9,8 @@ cmake_minimum_required(VERSION 3.18)
 project(project_name)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 add_subdirectory(package.cmake)
 
 using(ninja VERSION 1.10.2)
@@ -19,7 +21,6 @@ using(boringssl VERSION a9670a8b476470e6f874fef3554e8059683e1413)
 using(cares VERSION 1_18_1)
 using(protobuf VERSION 3.19.1)
 using(grpc VERSION 1.41.1)
-using(luajit VERSION v2.1 LUA_VERSION 5.1)
 using(grpcgen 
     PROTO_PATH ${PROJECT_SOURCE_DIR}
     PROTO_FILES
@@ -36,9 +37,6 @@ target_link_libraries(main
     grpcgen
     grpc::grpc++_unsecure protobuf::protobuf boringssl cares zlib
     Threads::Threads
-    luajit
-    ${CMAKE_DL_LIBS} # for luajit
-
 )
 ```
 

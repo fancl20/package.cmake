@@ -10,6 +10,4 @@ ExternalProject_Add (
         "-DRE2_BUILD_TESTING:BOOL=OFF"
     ${ExternalProjectArgs}
 )
-add_package(re2 re2-external
-    STATICS re2
-)
+add_package(re2 re2-external STATICS re2)

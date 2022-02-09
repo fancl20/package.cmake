@@ -7,11 +7,11 @@ cmake_parse_arguments(
 ExternalProject_Add (
     luajit-external
     GIT_REPOSITORY https://luajit.org/git/luajit.git
-    GIT_TAG ${USING_PACKAGE_LUAJIT_VERSION}
+    GIT_TAG v${USING_PACKAGE_LUAJIT_VERSION}
     CONFIGURE_COMMAND ""
-    BUILD_COMMAND ${Make} CC=${CMAKE_C_COMPILER} -j$(nproc)
-    INSTALL_COMMAND ${Make} install PREFIX="" DESTDIR=<INSTALL_DIR>
+    BUILD_COMMAND ${Make}
+    INSTALL_COMMAND ${Make} install PREFIX=<INSTALL_DIR> INSTALL_ANAME=libluajit.a
     ${ExternalProjectArgs}
 )
-
-add_package(luajit luajit-external STATICS luajit-${USING_PACKAGE_LUAJIT_LUA_VERSION})
+add_package(luajit luajit-external STATICS luajit)
+target_link_libraries(luajit INTERFACE ${CMAKE_DL_LIBS})

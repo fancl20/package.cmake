@@ -7,7 +7,8 @@ ExternalProject_Add (
     protobuf-external
     URL https://github.com/google/protobuf/archive/refs/tags/v${USING_PACKAGE_PROTOBUF_VERSION}.zip
     SOURCE_SUBDIR cmake
-    CMAKE_ARGS "-Dprotobuf_BUILD_TESTS:BOOL=OFF"
+    CMAKE_CACHE_ARGS
+        "-Dprotobuf_BUILD_TESTS:BOOL=OFF"
     ${ExternalProjectArgs}
 )
 add_package(protobuf protobuf-external
