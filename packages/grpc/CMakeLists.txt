@@ -23,5 +23,5 @@ ExternalProject_Add (
 )
 add_package(grpc grpc-external
     STATICS gpr grpc grpc_plugin_support grpc_unsecure grpcpp_channelz
-    grpc++ grpc++_alts grpc++_error_details grpc++_reflection grpc++_unsecure
+    grpc++ grpc++_alts grpc++_error_details grpc++_reflection grpc++_unsecure upb address_sorting
 )
