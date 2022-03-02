@@ -9,7 +9,7 @@ ExternalProject_Add (
     GIT_REPOSITORY https://luajit.org/git/luajit.git
     GIT_TAG v${USING_PACKAGE_LUAJIT_VERSION}
     CONFIGURE_COMMAND ""
-    BUILD_COMMAND ${Make}
+    BUILD_COMMAND ${Make} CC=${CMAKE_C_COMPILER} CXX=${CMAKE_CXX_COMPILER}
     INSTALL_COMMAND ${Make} install PREFIX=<INSTALL_DIR> INSTALL_ANAME=libluajit.a
     ${ExternalProjectArgs}
 )
