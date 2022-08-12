@@ -3,9 +3,9 @@ cmake_parse_arguments(
     "" "VERSION" ""
     ${USING_PACKAGE_EXTRA_ARGS}
 )
-set(OpenSSLConfigureCommand config)
+set(OpenSSLConfigureCommand config --libdir=lib)
 if(APPLE)
-    set(OpenSSLConfigureCommand Configure darwin64-x86_64-cc enable-ec_nistp_64_gcc_128)
+    set(OpenSSLConfigureCommand Configure darwin64-x86_64-cc enable-ec_nistp_64_gcc_128 --libdir=lib)
 endif()
 ExternalProject_Add (
     openssl-external
